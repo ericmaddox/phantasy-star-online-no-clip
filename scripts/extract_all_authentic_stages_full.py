@@ -633,6 +633,7 @@ def main():
         ("map_ruins02_00n.rel", "map_ruins02.xvm", "ruins-02"),
         ("map_labo00_00n.rel", "map_labo00.xvm", "pioneer2-lab"),
         ("map_space01_00n.rel", "map_space01.xvm", "vr-spaceship"),
+        ("map_ancient01_00n.rel", "map_ancient01.xvm", "vr-temple"),
         ("map_jungle01_00n.rel", "map_jungle01.xvm", "cca-jungle-mountain"),
         ("map_seabed01_00n.rel", "map_seabed01.xvm", "seabed-01"),
         ("map_crater01_00n.rel", "map_crater01.xvm", "crater-interior"),

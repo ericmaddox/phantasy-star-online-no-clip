@@ -1,0 +1,706 @@
+# Phantasy Star Online Authentic Material Archive
+
+newmtl mat_000
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h32_maru_futi.png
+
+newmtl mat_001
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h16_k_orange.png
+
+newmtl mat_002
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h16_k_red.png
+
+newmtl mat_003
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h32_kabe_d.png
+
+newmtl mat_004
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_kabe_c.png
+
+newmtl mat_005
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h64_pipe01.png
+
+newmtl mat_006
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_kabe_b.png
+
+newmtl mat_007
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h256_kabe_e.png
+
+newmtl mat_008
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o256_tenjo1.png
+
+newmtl mat_009
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o256_t_meca.png
+
+newmtl mat_010
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o256_t_yuka2.png
+
+newmtl mat_011
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n64_waku01.png
+
+newmtl mat_012
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_kabe_g.png
+
+newmtl mat_013
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o64_t_sikiri2.png
+
+newmtl mat_014
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_t_kabe.png
+
+newmtl mat_015
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_kabe_f.png
+
+newmtl mat_016
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o64_t_sikiri4.png
+
+newmtl mat_017
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_orngfloor01.png
+
+newmtl mat_018
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_light02.png
+
+newmtl mat_019
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_light01.png
+
+newmtl mat_020
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h64_k_koushi.png
+
+newmtl mat_021
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h64_garasu.png
+
+newmtl mat_022
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o64_t_sikiri3.png
+
+newmtl mat_023
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_tank02.png
+
+newmtl mat_024
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h32_k_yellow.png
+
+newmtl mat_025
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g032_k_red.png
+
+newmtl mat_026
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_kabe_02.png
+
+newmtl mat_027
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_hasira01.png
+
+newmtl mat_028
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_doormawari.png
+
+newmtl mat_029
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_h_lkai01.png
+
+newmtl mat_030
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_shuter01.png
+
+newmtl mat_031
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g64_sukima03.png
+
+newmtl mat_032
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h16_k_red.png
+
+newmtl mat_033
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/floor.png
+
+newmtl mat_034
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n64_sukima_b01.png
+
+newmtl mat_035
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g128_kabe_f.png
+
+newmtl mat_036
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g256_kabe01.png
+
+newmtl mat_037
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g128_nuki01.png
+
+newmtl mat_038
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o256_h_yuka03.png
+
+newmtl mat_039
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_hasira04.png
+
+newmtl mat_040
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_hasira03.png
+
+newmtl mat_041
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_kabe08.png
+
+newmtl mat_042
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/pipe04.png
+
+newmtl mat_043
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n256_kabe02.png
+
+newmtl mat_044
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n256_kabe14.png
+
+newmtl mat_045
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h128_hasira.png
+
+newmtl mat_046
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o128_h_panel01.png
+
+newmtl mat_047
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n256_kabe06.png
+
+newmtl mat_048
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_k2pipe04.png
+
+newmtl mat_049
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g64_sukima.png
+
+newmtl mat_050
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n64_grnlght01.png
+
+newmtl mat_051
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_k2lkai01.png
+
+newmtl mat_052
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_hkai01.png
+
+newmtl mat_053
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_k2kasan03.png
+
+newmtl mat_054
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_k1warekabe01.png
+
+newmtl mat_055
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n256_hasira01.png
+
+newmtl mat_056
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h16_k_orange.png
+
+newmtl mat_057
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n256_kabe12.png
+
+newmtl mat_058
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_kasan02.png
+
+newmtl mat_059
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_tutu01.png
+
+newmtl mat_060
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n256_yanekusari01.png
+
+newmtl mat_061
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_k2kabe15.png
+
+newmtl mat_062
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n64_kabe14.png
+
+newmtl mat_063
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_k1kabeg02.png
+
+newmtl mat_064
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_kabe01.png
+
+newmtl mat_065
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n64_taki_02.png
+
+newmtl mat_066
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_taki_01.png
+
+newmtl mat_067
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_kabe_m01.png
+
+newmtl mat_068
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_sitakabe02.png
+
+newmtl mat_069
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_sitakabe01.png
+
+newmtl mat_070
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g64_suikima_m2.png
+
+newmtl mat_071
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n64_lblue01.png
+
+newmtl mat_072
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g64_warp_yuka.png
+
+newmtl mat_073
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_mekaa01.png
+
+newmtl mat_074
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_kowarekabe01.png
+
+newmtl mat_075
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_mekaa02.png
+
+newmtl mat_076
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_kabe_g.png
+
+newmtl mat_077
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n64_sitatunagi01.png
+
+newmtl mat_078
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h256_bgdeck02.png
+
+newmtl mat_079
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_k1mhasira01.png
+
+newmtl mat_080
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n256_hone01.png
+
+newmtl mat_081
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h256_bg_iwa01.png
+
+newmtl mat_082
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n256_floor035.png
+
+newmtl mat_083
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/n128_kabe09.png
+
+newmtl mat_084
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h256_bgdeck01.png
+
+newmtl mat_085
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/g64_kagami.png
+
+newmtl mat_086
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/h32_k_red.png
+
+newmtl mat_087
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/o256_gaiheki02.png
+
