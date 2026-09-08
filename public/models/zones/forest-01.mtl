@@ -1,0 +1,386 @@
+# Phantasy Star Online Authentic Material Archive
+
+newmtl mat_000
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_k064_ha02.png
+
+newmtl mat_001
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t128_ha01.png
+
+newmtl mat_002
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t128_ha04.png
+
+newmtl mat_003
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t032_flower02_tm.png
+
+newmtl mat_004
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_064k_kinoura01.png
+
+newmtl mat_005
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_064k_kasa01.png
+
+newmtl mat_006
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_064k_kinoko02.png
+
+newmtl mat_007
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_kihada01.png
+
+newmtl mat_008
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_064k_kinoko01.png
+
+newmtl mat_009
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_512k_takigake01.png
+
+newmtl mat_010
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_064k_takikire01.png
+
+newmtl mat_011
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_032k_jimenkuro02.png
+
+newmtl mat_012
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_128k_ha04.png
+
+newmtl mat_013
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_064k_kikawa01.png
+
+newmtl mat_014
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_128k_kiha02b.png
+
+newmtl mat_015
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_128k_kiha02a.png
+
+newmtl mat_016
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_024k_fokager01.png
+
+newmtl mat_017
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_kokejime02.png
+
+newmtl mat_018
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_jimen01.png
+
+newmtl mat_019
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_koke02.png
+
+newmtl mat_020
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_sibahu01.png
+
+newmtl mat_021
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/sa_128k_jiment01.png
+
+newmtl mat_022
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_128k_mizushita01.png
+
+newmtl mat_023
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_064k_mizukire.png
+
+newmtl mat_024
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_sibahu03.png
+
+newmtl mat_025
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_128k_shibatunagi01.png
+
+newmtl mat_026
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_512k_tiki02.png
+
+newmtl mat_027
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_512k_tiki03.png
+
+newmtl mat_028
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_a064_kakushi.png
+
+newmtl mat_029
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t032_taki.png
+
+newmtl mat_030
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_ishi01.png
+
+newmtl mat_031
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_kokejime01.png
+
+newmtl mat_032
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t032_gaitosita.png
+
+newmtl mat_033
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t032_gaitonaka.png
+
+newmtl mat_034
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t032_gaitoue.png
+
+newmtl mat_035
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t032_gaitohikari.png
+
+newmtl mat_036
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_256k_ishi02.png
+
+newmtl mat_037
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_064a_kinoko.png
+
+newmtl mat_038
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ha_t032_rail.png
+
+newmtl mat_039
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t064_antena.png
+
+newmtl mat_040
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ha_t064_miharihasira.png
+
+newmtl mat_041
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ha_t032_miharinaka.png
+
+newmtl mat_042
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t128_koya.png
+
+newmtl mat_043
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t064_koyahakai.png
+
+newmtl mat_044
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_t128_koya2.png
+
+newmtl mat_045
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_256k_ishijime03.png
+
+newmtl mat_046
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_256k_ishi01.png
+
+newmtl mat_047
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ts_128k_tuti01.png
+

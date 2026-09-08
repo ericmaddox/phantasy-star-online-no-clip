@@ -1,0 +1,457 @@
+# Phantasy Star Online Authentic Material Archive
+
+newmtl mat_000
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank08_64.png
+
+newmtl mat_001
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_128_tank05.png
+
+newmtl mat_002
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank07_64.png
+
+newmtl mat_003
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t128_tank02.png
+
+newmtl mat_004
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank04_64.png
+
+newmtl mat_005
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank03_64.png
+
+newmtl mat_006
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank01_64.png
+
+newmtl mat_007
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank09_64.png
+
+newmtl mat_008
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank10_64.png
+
+newmtl mat_009
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank11_64.png
+
+newmtl mat_010
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_64_tank_g.png
+
+newmtl mat_011
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_64_saku_g.png
+
+newmtl mat_012
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/crater01_512.png
+
+newmtl mat_013
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_256_iwa06.png
+
+newmtl mat_014
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t128_kusa1Y.png
+
+newmtl mat_015
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t128_kusa3Y.png
+
+newmtl mat_016
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t128_kusa4Y.png
+
+newmtl mat_017
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t128_ring01.png
+
+newmtl mat_018
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ns_o064_box01.png
+
+newmtl mat_019
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/saku01_64.png
+
+newmtl mat_020
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank06_64.png
+
+newmtl mat_021
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_64_boxshadow.png
+
+newmtl mat_022
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_64_kusa_shadow.png
+
+newmtl mat_023
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t256_tutib.png
+
+newmtl mat_024
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ha_u064_domizu000.png
+
+newmtl mat_025
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ha_u064_dohamon010.png
+
+newmtl mat_026
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t128_glow01.png
+
+newmtl mat_027
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t256_tutia.png
+
+newmtl mat_028
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t256_hikizuri.png
+
+newmtl mat_029
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t256_gakea.png
+
+newmtl mat_030
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t256_gakeb.png
+
+newmtl mat_031
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t256_tutie.png
+
+newmtl mat_032
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/iwa01_512.png
+
+newmtl mat_033
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_128_lake01.png
+
+newmtl mat_034
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_128_lake02.png
+
+newmtl mat_035
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t256_tuti.png
+
+newmtl mat_036
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_256_lake03.png
+
+newmtl mat_037
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_256_kusa01.png
+
+newmtl mat_038
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_256_kusa02.png
+
+newmtl mat_039
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t256_tutig.png
+
+newmtl mat_040
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_64_marushadow.png
+
+newmtl mat_041
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_128_step02.png
+
+newmtl mat_042
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_128_kusa03.png
+
+newmtl mat_043
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t64_bridge_light.png
+
+newmtl mat_044
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+
+newmtl mat_045
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_128_kabeAY.png
+
+newmtl mat_046
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_128_kabeBY.png
+
+newmtl mat_047
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_64_kabeDY.png
+
+newmtl mat_048
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_128_kabeCY.png
+
+newmtl mat_049
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_256_yukaAY.png
+
+newmtl mat_050
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t_64_lightY.png
+
+newmtl mat_051
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/bridge_01_64_sumilight.png
+
+newmtl mat_052
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/t64_bridge_lightY.png
+
+newmtl mat_053
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank09_128.png
+
+newmtl mat_054
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/bridge_01_128.png
+
+newmtl mat_055
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/bridge_02_128.png
+
+newmtl mat_056
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/tank02_128.png
+

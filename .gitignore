@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+dist/
+
+# Raw unpacked game client dump, installer & temporary scratch
+pso_raw_data/
+scratch/
+*.exe
+
+# Logs and environment
+*.log
+.DS_Store
+Thumbs.db

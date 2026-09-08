@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phantasy Star Online | 3D World & Map Explorer (Noclip)</title>
+    <meta name="description" content="Explore every world, ship, visual lobby, dungeon, and boss arena from Phantasy Star Online in full 3D noclip flythrough mode." />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- 3D Canvas Container -->
+      <div id="canvas-container"></div>
+
+      <!-- Sci-Fi HUD Scanlines & Vignette -->
+      <div class="hud-overlay-effects">
+        <div class="hud-scanlines"></div>
+        <div class="hud-vignette"></div>
+        <div class="hud-grid-accent"></div>
+      </div>
+
+      <!-- Top Header Navigation Bar -->
+      <header id="top-navbar" class="pso-glass-panel">
+        <div class="nav-left">
+          <div class="brand-badge">
+            <div class="pso-logo-icon">
+              <span class="pso-glyph">❖</span>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title">PIONEER II <span class="accent-text">NOCLIP</span></div>
+              <div class="brand-subtitle">PHANTASY STAR ONLINE WORLD EXPLORER</div>
+            </div>
+          </div>
+
+          <!-- Zone / Map Selector Dropdown Trigger -->
+          <button id="zone-select-btn" class="pso-btn pso-btn-zone" title="Select Zone / Map">
+            <i data-lucide="map" class="icon-sm"></i>
+            <div class="zone-btn-text">
+              <span class="zone-btn-episode" id="header-episode-tag">EPISODE 1</span>
+              <span class="zone-btn-name" id="header-zone-name">Pioneer II - City</span>
+            </div>
+            <i data-lucide="chevron-down" class="icon-xs chevron"></i>
+          </button>
+        </div>
+
+        <div class="nav-center">
+          <!-- Viewpoints / POI Quick Selector -->
+          <div class="poi-quick-bar" id="poi-quick-bar">
+            <!-- Dynamic POI chips inserted here -->
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <!-- BGM Ambient Player Button -->
+          <button id="audio-toggle-btn" class="pso-icon-btn" title="Toggle PSO Ambient Soundtrack">
+            <i data-lucide="volume-2" class="icon-sm"></i>
+            <span class="audio-wave-bars">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+
+          <!-- Layer Visibility Inspector Button -->
+          <button id="layers-panel-btn" class="pso-icon-btn" title="Scene Layers & Scenegraph">
+            <i data-lucide="layers" class="icon-sm"></i>
+          </button>
+
+          <!-- Camera Settings Button -->
+          <button id="camera-panel-btn" class="pso-icon-btn" title="Camera & Controls">
+            <i data-lucide="video" class="icon-sm"></i>
+          </button>
+
+          <!-- Screenshot Button -->
+          <button id="screenshot-btn" class="pso-icon-btn" title="Take High-Res Screenshot">
+            <i data-lucide="camera" class="icon-sm"></i>
+          </button>
+
+          <!-- Share Link Button -->
+          <button id="share-btn" class="pso-btn pso-btn-accent" title="Share Current View">
+            <i data-lucide="share-2" class="icon-xs"></i>
+            <span>SHARE</span>
+          </button>
+
+          <!-- Custom Asset Drop / Upload -->
+          <button id="import-btn" class="pso-icon-btn" title="Load Custom PSO File (.rel, .nj, .xj, .prs)">
+            <i data-lucide="folder-open" class="icon-sm"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- HUD Telemetry Overlay (Bottom Left) -->
+      <div id="hud-telemetry" class="pso-hud-telemetry">
+        <div class="telemetry-item">
+          <span class="tel-label">POS</span>
+          <span class="tel-val" id="hud-pos">X: 0.00 | Y: 12.50 | Z: 45.00</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="tel-label">ROT</span>
+          <span class="tel-val" id="hud-rot">YAW: 0.0° | PITCH: -15.0°</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="tel-label">CAM</span>
+          <span class="tel-val" id="hud-cam-mode">FLY (NOCLIP)</span>
+          <span class="tel-badge" id="hud-speed">SPEED: 1.0x</span>
+        </div>
+      </div>
+
+      <!-- Quick Control Tips (Bottom Right) -->
+      <div id="hud-controls-help" class="pso-hud-help">
+        <div class="help-pill"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move</div>
+        <div class="help-pill"><kbd>Right-Click</kbd> / <kbd>Drag</kbd> Look</div>
+        <div class="help-pill"><kbd>Space</kbd> Up <kbd>Shift</kbd> Down</div>
+        <div class="help-pill"><kbd>Wheel</kbd> Speed</div>
+        <div class="help-pill"><kbd>C</kbd> Orbit/Fly</div>
+      </div>
+
+      <!-- Modal: Zone & World Browser -->
+      <div id="zone-modal" class="pso-modal-backdrop hidden">
+        <div class="pso-modal-window pso-glass-panel">
+          <div class="modal-header">
+            <div class="modal-title-group">
+              <i data-lucide="globe" class="icon-accent"></i>
+              <h2>PHANTASY STAR ONLINE WORLDS</h2>
+            </div>
+            <div class="modal-search-box">
+              <i data-lucide="search" class="icon-sm"></i>
+              <input type="text" id="zone-search-input" placeholder="Search world, ship, lobby, dungeon..." />
+            </div>
+            <button class="modal-close-btn" id="zone-modal-close">
+              <i data-lucide="x" class="icon-sm"></i>
+            </button>
+          </div>
+
+          <!-- Episode Tabs -->
+          <div class="episode-tabs">
+            <button class="ep-tab active" data-episode="all">ALL LOCATIONS</button>
+            <button class="ep-tab" data-episode="ep1">EPISODE I</button>
+            <button class="ep-tab" data-episode="ep2">EPISODE II</button>
+            <button class="ep-tab" data-episode="ep4">EPISODE IV</button>
+            <button class="ep-tab" data-episode="lobby">LOBBIES & SHIPS</button>
+          </div>
+
+          <!-- Zone Cards Grid -->
+          <div class="zone-cards-grid" id="zone-grid-container">
+            <!-- Dynamic Zone Cards inserted here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Drawer: Layers & Scenegraph Inspector -->
+      <aside id="layers-panel" class="pso-drawer pso-glass-panel hidden">
+        <div class="drawer-header">
+          <div class="drawer-title">
+            <i data-lucide="layers" class="icon-sm"></i>
+            <h3>SCENE LAYERS</h3>
+          </div>
+          <button class="drawer-close-btn" id="layers-close-btn"><i data-lucide="x" class="icon-xs"></i></button>
+        </div>
+        <div class="drawer-content" id="layers-content">
+          <!-- Layer Toggles -->
+          <div class="layer-group">
+            <div class="layer-group-title">GEOMETRY & ENVIRONMENT</div>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-terrain" checked />
+              <span class="custom-checkbox"></span>
+              <span>Terrain & Structures</span>
+            </label>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-props" checked />
+              <span class="custom-checkbox"></span>
+              <span>Props & Objects (Boxes, Terminals)</span>
+            </label>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-water" checked />
+              <span class="custom-checkbox"></span>
+              <span>Water & Fluid FX</span>
+            </label>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-skybox" checked />
+              <span class="custom-checkbox"></span>
+              <span>Skybox & Backdrops</span>
+            </label>
+          </div>
+
+          <div class="layer-group">
+            <div class="layer-group-title">INTERACTIVE & SYSTEM</div>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-portals" checked />
+              <span class="custom-checkbox"></span>
+              <span>Teleporters & Warp Rings</span>
+            </label>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-collision" />
+              <span class="custom-checkbox"></span>
+              <span>Collision Meshes (Debug)</span>
+            </label>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-spawns" />
+              <span class="custom-checkbox"></span>
+              <span>Enemy & Item Spawn Points</span>
+            </label>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-wireframe" />
+              <span class="custom-checkbox"></span>
+              <span>Wireframe Overlay</span>
+            </label>
+          </div>
+
+          <div class="layer-group">
+            <div class="layer-group-title">ATMOSPHERE & LIGHTING</div>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-fog" checked />
+              <span class="custom-checkbox"></span>
+              <span>Volumetric Atmosphere & Fog</span>
+            </label>
+            <label class="pso-checkbox-label">
+              <input type="checkbox" id="layer-particles" checked />
+              <span class="custom-checkbox"></span>
+              <span>Photon & Ambient Dust Particles</span>
+            </label>
+            <div class="slider-control">
+              <label>Light Intensity <span id="light-val">1.0x</span></label>
+              <input type="range" id="light-slider" min="0.1" max="2.5" step="0.1" value="1.0" />
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Sidebar Drawer: Camera & View Settings -->
+      <aside id="camera-panel" class="pso-drawer pso-glass-panel hidden">
+        <div class="drawer-header">
+          <div class="drawer-title">
+            <i data-lucide="video" class="icon-sm"></i>
+            <h3>CAMERA SETTINGS</h3>
+          </div>
+          <button class="drawer-close-btn" id="camera-close-btn"><i data-lucide="x" class="icon-xs"></i></button>
+        </div>
+        <div class="drawer-content">
+          <div class="setting-group">
+            <div class="setting-title">CAMERA MODE</div>
+            <div class="button-toggle-group">
+              <button class="btn-toggle active" id="mode-fly-btn">NOCLIP (FLY)</button>
+              <button class="btn-toggle" id="mode-orbit-btn">ORBIT</button>
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <div class="slider-control">
+              <label>Fly Speed <span id="cam-speed-val">1.0x</span></label>
+              <input type="range" id="cam-speed-slider" min="0.1" max="5.0" step="0.1" value="1.0" />
+            </div>
+            <div class="slider-control">
+              <label>Field of View (FOV) <span id="cam-fov-val">65°</span></label>
+              <input type="range" id="cam-fov-slider" min="30" max="110" step="1" value="65" />
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <div class="setting-title">PRESET VIEWPOINTS</div>
+            <div class="poi-list" id="poi-drawer-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <button class="pso-btn pso-btn-subtle w-full" id="reset-cam-btn">
+              <i data-lucide="rotate-ccw" class="icon-xs"></i>
+              <span>RESET CAMERA</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Modal: Share & Snapshot -->
+      <div id="share-modal" class="pso-modal-backdrop hidden">
+        <div class="pso-modal-window pso-modal-small pso-glass-panel">
+          <div class="modal-header">
+            <div class="modal-title-group">
+              <i data-lucide="share-2" class="icon-accent"></i>
+              <h2>SHARE VIEWPOINT</h2>
+            </div>
+            <button class="modal-close-btn" id="share-modal-close">
+              <i data-lucide="x" class="icon-sm"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="pso-modal-desc">Share this exact coordinate, camera angle, and scene configuration:</p>
+            <div class="copy-url-group">
+              <input type="text" id="share-url-input" readonly />
+              <button class="pso-btn pso-btn-accent" id="copy-url-btn">
+                <i data-lucide="copy" class="icon-xs"></i>
+                <span id="copy-btn-text">COPY</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drag & Drop Custom File Upload Overlay -->
+      <div id="drop-zone-overlay" class="drop-zone-overlay hidden">
+        <div class="drop-box pso-glass-panel">
+          <i data-lucide="upload-cloud" class="icon-xl"></i>
+          <h3>LOAD PSO MAP ASSETS</h3>
+          <p>Drop <code>.rel</code>, <code>.nj</code>, <code>.xj</code>, <code>.prs</code>, <code>.bml</code>, <code>.obj</code>, or <code>.gltf</code> files here to inspect custom maps.</p>
+        </div>
+      </div>
+
+      <!-- Toast Notifications -->
+      <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <!-- Main JS Application Entry -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
