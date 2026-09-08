@@ -21,6 +21,9 @@ export interface ZoneDefinition {
   ambientLight: number;
   sunColor: number;
   sunPos: [number, number, number];
+  hemiSkyColor: number;
+  hemiGroundColor: number;
+  skyModelId?: string;
   pois: POI[];
 }
 
@@ -43,6 +46,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x88ccff,
     sunColor: 0x00f0ff,
     sunPos: [50, 120, 50],
+    hemiSkyColor: 0x00d4ff,
+    hemiGroundColor: 0x050c18,
+    skyModelId: 'sky-pioneer2-city',
     pois: [
       { id: 'spawn', name: 'Central Plaza', description: 'Central teleportation concourse', position: [0, 6, 35], rotation: [0, -0.1] },
       { id: 'principal', name: "Principal's Office", description: 'Executive command desk & council chamber', position: [0, 18, -40], rotation: [Math.PI, -0.1] },
@@ -67,6 +73,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x66aacc,
     sunColor: 0x00ffff,
     sunPos: [0, 80, 0],
+    hemiSkyColor: 0x00e5ff,
+    hemiGroundColor: 0x030812,
+    skyModelId: 'sky-visual-lobby',
     pois: [
       { id: 'center', name: 'Lobby Center', description: 'Central photon ring & hologram spire', position: [0, 5, 0], rotation: [0, 0] },
       { id: 'soccer', name: 'Soccer Pitch', description: 'Interactive photon ball field', position: [0, 5, 38], rotation: [Math.PI, 0] },
@@ -89,6 +98,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0xffaacc,
     sunColor: 0xff66bb,
     sunPos: [20, 80, 20],
+    hemiSkyColor: 0xff88cc,
+    hemiGroundColor: 0x12040e,
+    skyModelId: 'sky-visual-lobby-festive',
     pois: [
       { id: 'sakura_tree', name: 'Grand Sakura Tree', description: 'Giant illuminated cherry blossom tree', position: [0, 8, 0], rotation: [0, -0.1] },
       { id: 'bridge', name: 'Moon Bridge', description: 'Traditional arched bridge over photon stream', position: [0, 12, 30], rotation: [Math.PI, -0.15] }
@@ -113,6 +125,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x77cc88,
     sunColor: 0xeeffaa,
     sunPos: [80, 140, 60],
+    hemiSkyColor: 0xeeffcc,
+    hemiGroundColor: 0x05140b,
+    skyModelId: 'sky-forest-01',
     pois: [
       { id: 'drop_pod', name: 'Drop Pod Landing', description: 'Hunter initial touchdown zone', position: [0, 8, 45], rotation: [0, 0] },
       { id: 'waterfall', name: 'Twin Waterfalls', description: 'Flowing river basin with ancient archways', position: [-40, 10, -20], rotation: [Math.PI / 3, -0.1] },
@@ -135,6 +150,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x88cc77,
     sunColor: 0xffdd88,
     sunPos: [0, 120, -50],
+    hemiSkyColor: 0xffeebb,
+    hemiGroundColor: 0x0b1408,
+    skyModelId: 'sky-forest-02',
     pois: [
       { id: 'entrance', name: 'Valley Entrance', description: 'Approach path surrounded by cliff walls', position: [0, 10, 60], rotation: [0, 0] },
       { id: 'canopy', name: 'Grand Canopy Arch', description: 'Massive towering bio-luminescent trees', position: [0, 15, -10], rotation: [0, -0.1] }
@@ -155,6 +173,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0xcc8855,
     sunColor: 0xff7722,
     sunPos: [0, 100, 0],
+    hemiSkyColor: 0xff8833,
+    hemiGroundColor: 0x140803,
+    skyModelId: 'sky-boss-dragon',
     pois: [
       { id: 'nest', name: 'Lava Ring Arena', description: 'Molten rock arena surrounded by fiery fissures', position: [0, 8, 0], rotation: [0, 0] }
     ]
@@ -174,6 +195,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x4488aa,
     sunColor: 0x00e1ff,
     sunPos: [20, 60, 20],
+    hemiSkyColor: 0x00d4ff,
+    hemiGroundColor: 0x020a10,
+    skyModelId: 'sky-caves-01',
     pois: [
       { id: 'crystal_grotto', name: 'Crystal Grotto', description: 'Glowing photon crystal spires', position: [0, 8, 30], rotation: [0, 0] },
       { id: 'underground_river', name: 'Underground Waterfall', description: 'Subterranean cascade flowing into the abyss', position: [-35, 12, -10], rotation: [Math.PI / 3, -0.2] }
@@ -194,6 +218,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x5599aa,
     sunColor: 0x00ffff,
     sunPos: [40, 70, 40],
+    hemiSkyColor: 0x00f0ff,
+    hemiGroundColor: 0x030d14,
+    skyModelId: 'sky-caves-02',
     pois: [
       { id: 'bridge', name: 'Crystal Span Bridge', description: 'Arched glowing stone bridge over magma abyss', position: [0, 10, 0], rotation: [0, 0] }
     ]
@@ -213,6 +240,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0xbb7744,
     sunColor: 0xff8833,
     sunPos: [0, 80, 0],
+    hemiSkyColor: 0xff9944,
+    hemiGroundColor: 0x100803,
+    skyModelId: 'sky-caves-03',
     pois: [
       { id: 'magma_core', name: 'Magma Caldera Basin', description: 'Active bubbling lava chambers', position: [0, 12, -20], rotation: [0, -0.1] }
     ]
@@ -232,6 +262,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x337799,
     sunColor: 0x00d4ff,
     sunPos: [0, 50, 0],
+    hemiSkyColor: 0x00ccff,
+    hemiGroundColor: 0x020c14,
+    skyModelId: 'sky-caves-derolle',
     pois: [
       { id: 'raft_helm', name: 'Raft Platform', description: 'Main combat platform with defensive railings', position: [0, 5, 0], rotation: [0, 0] }
     ]
@@ -251,6 +284,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x8899aa,
     sunColor: 0xffaa00,
     sunPos: [40, 90, 40],
+    hemiSkyColor: 0xffbb44,
+    hemiGroundColor: 0x080a0e,
+    skyModelId: 'sky-mines-01',
     pois: [
       { id: 'conveyor_line', name: 'Ore Conveyor Hub', description: 'Industrial automated processing lines', position: [-40, 8, 15], rotation: [Math.PI / 2, 0] },
       { id: 'laser_grid', name: 'High-Voltage Transformer', description: 'Humming electrical substation', position: [40, 8, 15], rotation: [-Math.PI / 2, 0] }
@@ -271,6 +307,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x998877,
     sunColor: 0xffbb44,
     sunPos: [0, 90, 0],
+    hemiSkyColor: 0xffaa33,
+    hemiGroundColor: 0x0a0805,
+    skyModelId: 'sky-mines-02',
     pois: [
       { id: 'crusher', name: 'Mineral Crusher Shaft', description: 'Towering industrial ore elevators', position: [0, 15, -20], rotation: [0, 0] }
     ]
@@ -290,6 +329,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x5599cc,
     sunColor: 0x00e5ff,
     sunPos: [0, 70, 0],
+    hemiSkyColor: 0x00f0ff,
+    hemiGroundColor: 0x04080f,
+    skyModelId: 'sky-boss-vol-opt',
     pois: [
       { id: 'core', name: 'Central AI Cylinder', description: 'Pulsing supercomputer matrix', position: [0, 10, 0], rotation: [0, 0] }
     ]
@@ -309,6 +351,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x5566aa,
     sunColor: 0x9944ff,
     sunPos: [0, 90, 0],
+    hemiSkyColor: 0xaa55ff,
+    hemiGroundColor: 0x040612,
+    skyModelId: 'sky-ruins-01',
     pois: [
       { id: 'rico_monument', name: "Red Ring Rico's Memorial", description: 'The final message capsule left by Principal Tyrell’s daughter', position: [0, 8, 20], rotation: [0, 0] },
       { id: 'alien_throne', name: 'Ancient Core Obelisk', description: 'Geometric alien artifact humming with dark photon energy', position: [0, 18, -40], rotation: [0, -0.1] }
@@ -329,6 +374,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x7755aa,
     sunColor: 0xbb33ff,
     sunPos: [0, 90, 0],
+    hemiSkyColor: 0xbb44ff,
+    hemiGroundColor: 0x080310,
+    skyModelId: 'sky-ruins-02',
     pois: [
       { id: 'portal', name: 'Dimensional Warp Seal', description: 'Pulsing dark energy portal ring', position: [0, 12, 0], rotation: [0, 0] }
     ]
@@ -348,6 +396,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x9944cc,
     sunColor: 0xff33aa,
     sunPos: [0, 100, 0],
+    hemiSkyColor: 0xff44bb,
+    hemiGroundColor: 0x0a0112,
+    skyModelId: 'sky-boss-dark-falz',
     pois: [
       { id: 'monuments', name: 'Soul Pillars', description: 'Floating geometric crystals hovering above the void', position: [0, 15, 0], rotation: [0, 0] }
     ]
@@ -371,6 +422,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x55bbcc,
     sunColor: 0x00ffcc,
     sunPos: [0, 70, 30],
+    hemiSkyColor: 0x00ffee,
+    hemiGroundColor: 0x030d12,
+    skyModelId: 'sky-pioneer2-lab',
     pois: [
       { id: 'natasha_desk', name: 'Director Natasha Desk', description: 'Central research command console', position: [0, 8, -25], rotation: [0, 0] },
       { id: 'vr_pod', name: 'VR Simulation Pod', description: 'Neural simulator for Temple and Spaceship exercises', position: [-30, 8, 10], rotation: [Math.PI / 2, 0] }
@@ -391,6 +445,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x77aacc,
     sunColor: 0x00e5ff,
     sunPos: [50, 100, 50],
+    hemiSkyColor: 0x00eeff,
+    hemiGroundColor: 0x0a1420,
+    skyModelId: 'sky-vr-temple',
     pois: [
       { id: 'temple_gate', name: 'Torii Virtual Gate', description: 'Holographic grand entrance arch', position: [0, 8, 40], rotation: [0, 0] },
       { id: 'central_pavilion', name: 'Sanctuary Pavilion', description: 'Floating pagodas with glowing runic lanterns', position: [0, 14, -20], rotation: [0, -0.1] }
@@ -411,6 +468,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x7788aa,
     sunColor: 0x4488ff,
     sunPos: [0, 80, 0],
+    hemiSkyColor: 0x5599ff,
+    hemiGroundColor: 0x080a10,
+    skyModelId: 'sky-vr-spaceship',
     pois: [
       { id: 'bridge', name: 'Command Bridge', description: 'Holographic tactical holotank and consoles', position: [0, 10, -35], rotation: [0, 0] },
       { id: 'engine_core', name: 'Warp Drive Core', description: 'Pulsing containment reactor', position: [0, 15, 30], rotation: [Math.PI, -0.2] }
@@ -431,6 +491,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x66ccaa,
     sunColor: 0xaaffdd,
     sunPos: [60, 140, 60],
+    hemiSkyColor: 0x99ffee,
+    hemiGroundColor: 0x041614,
+    skyModelId: 'sky-cca-jungle-mountain',
     pois: [
       { id: 'central_dome', name: 'Central Dome Tower', description: 'The grand research facility at the island apex', position: [0, 24, -40], rotation: [0, -0.1] },
       { id: 'jungle_canopy', name: 'Tropical Jungle Canopy', description: 'Dense palm trees and ancient ruin fragments', position: [-40, 12, 10], rotation: [Math.PI / 3, 0] }
@@ -451,6 +514,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x66aacc,
     sunColor: 0x00f0ff,
     sunPos: [0, 90, 0],
+    hemiSkyColor: 0x00e5ff,
+    hemiGroundColor: 0x0a1018,
+    skyModelId: 'sky-boss-gol-dragon',
     pois: [
       { id: 'arena', name: 'VR Simulation Grid', description: 'Holographic hexagon combat platform', position: [0, 10, 0], rotation: [0, 0] }
     ]
@@ -470,6 +536,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x77bbcc,
     sunColor: 0x88eeff,
     sunPos: [50, 100, 50],
+    hemiSkyColor: 0x99eeff,
+    hemiGroundColor: 0x08161c,
+    skyModelId: 'sky-boss-gryphon',
     pois: [
       { id: 'clifftop', name: 'Summit Apex', description: 'High stone arena open to the ocean skies', position: [0, 12, 0], rotation: [0, 0] }
     ]
@@ -489,6 +558,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x3388aa,
     sunColor: 0x00f0ff,
     sunPos: [0, 70, 0],
+    hemiSkyColor: 0x00d4ff,
+    hemiGroundColor: 0x010c16,
+    skyModelId: 'sky-seabed-01',
     pois: [
       { id: 'glass_tunnel', name: 'Undersea Glass Corridor', description: 'Surrounded by dark abyss waters and schools of fish', position: [0, 8, 25], rotation: [0, 0] }
     ]
@@ -508,6 +580,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0x4488aa,
     sunColor: 0x00ddff,
     sunPos: [0, 90, 0],
+    hemiSkyColor: 0x00e1ff,
+    hemiGroundColor: 0x020c16,
+    skyModelId: 'sky-boss-olga-flow',
     pois: [
       { id: 'elevator', name: 'Descending Elevator Platform', description: 'Industrial test rig plunging into the bottom of Ragol', position: [0, 15, 0], rotation: [0, 0] }
     ]
@@ -531,6 +606,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0xddaa77,
     sunColor: 0xffbb66,
     sunPos: [70, 110, 50],
+    hemiSkyColor: 0xffcc77,
+    hemiGroundColor: 0x140e08,
+    skyModelId: 'sky-crater-interior',
     pois: [
       { id: 'meteorite_core', name: 'Meteorite Core Apex', description: 'Ground zero of the cosmic impact', position: [0, 14, -30], rotation: [0, -0.15] },
       { id: 'crystal_ridges', name: 'Crystalline Formations', description: 'Alien minerals sprouting from the blasted soil', position: [-35, 12, 10], rotation: [Math.PI / 4, -0.1] }
@@ -551,6 +629,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0xee9944,
     sunColor: 0xffaa33,
     sunPos: [0, 130, 60],
+    hemiSkyColor: 0xffbb55,
+    hemiGroundColor: 0x181007,
+    skyModelId: 'sky-subterranean-desert',
     pois: [
       { id: 'dune_ridge', name: 'Sand Dune Vista', description: 'High ridge looking out over endless desert wastes', position: [0, 15, 30], rotation: [0, -0.1] }
     ]
@@ -570,6 +651,9 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ambientLight: 0xee9944,
     sunColor: 0xff8822,
     sunPos: [0, 100, 0],
+    hemiSkyColor: 0xff9933,
+    hemiGroundColor: 0x160c05,
+    skyModelId: 'sky-boss-saint-million',
     pois: [
       { id: 'arena_center', name: 'Sandstone Pit', description: 'Grand circular beast arena surrounded by canyon monoliths', position: [0, 10, 0], rotation: [0, 0] }
     ]

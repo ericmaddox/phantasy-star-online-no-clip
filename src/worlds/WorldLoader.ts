@@ -6,29 +6,41 @@ import { ZoneDefinition, WORLD_REGISTRY } from './WorldRegistry';
 export class WorldLoader {
   private scene: THREE.Scene;
   private currentWorldGroup: THREE.Group | null = null;
+  private currentSkyGroup: THREE.Group | null = null;
   private currentBoundingBox: THREE.Box3 | null = null;
   private ambientLight: THREE.AmbientLight;
   private dirLight: THREE.DirectionalLight;
+  private hemiLight: THREE.HemisphereLight;
   private currentZoneDef: ZoneDefinition | null = null;
   private activeLoadingId = 0;
+  private isSkyVisible = true;
   private onLoadedCallback?: (zoneDef: ZoneDefinition, vertexCount: number, box: THREE.Box3) => void;
   private raycaster = new THREE.Raycaster();
 
   constructor(scene: THREE.Scene) {
     this.scene = scene;
 
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
     this.ambientLight.name = 'AmbientLight';
     this.scene.add(this.ambientLight);
 
-    this.dirLight = new THREE.DirectionalLight(0xffffff, 1.8);
+    this.dirLight = new THREE.DirectionalLight(0xffffff, 1.4);
     this.dirLight.name = 'SunLight';
     this.dirLight.position.set(50, 120, 50);
     this.scene.add(this.dirLight);
+
+    this.hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.2);
+    this.hemiLight.name = 'HemiLight';
+    this.hemiLight.position.set(0, 500, 0);
+    this.scene.add(this.hemiLight);
   }
 
   public getCurrentWorldGroup(): THREE.Group | null {
     return this.currentWorldGroup;
+  }
+
+  public getCurrentSkyGroup(): THREE.Group | null {
+    return this.currentSkyGroup;
   }
 
   public getCurrentBoundingBox(): THREE.Box3 | null {
@@ -51,6 +63,13 @@ export class WorldLoader {
       this.currentBoundingBox = null;
     }
 
+    // Clean up previous authentic sky
+    if (this.currentSkyGroup) {
+      this.scene.remove(this.currentSkyGroup);
+      this.disposeHierarchy(this.currentSkyGroup);
+      this.currentSkyGroup = null;
+    }
+
     // Set atmosphere / fog / lighting
     this.scene.background = new THREE.Color(def.bgColor);
     this.scene.fog = new THREE.Fog(def.fogColor, def.fogNear, def.fogFar);
@@ -58,6 +77,8 @@ export class WorldLoader {
     this.ambientLight.color.setHex(def.ambientLight);
     this.dirLight.color.setHex(def.sunColor);
     this.dirLight.position.set(...def.sunPos);
+    this.hemiLight.color.setHex(def.hemiSkyColor);
+    this.hemiLight.groundColor.setHex(def.hemiGroundColor);
 
     // Create a clean root group for the authentic stage
     const group = new THREE.Group();
@@ -71,7 +92,146 @@ export class WorldLoader {
     // Load authentic stage OBJ/MTL directly
     this.loadAuthenticStage(def, group, loadingId);
 
+    // Load authentic skybox OBJ/MTL if available
+    if (def.skyModelId) {
+      const skyGroup = new THREE.Group();
+      skyGroup.name = `sky_${def.skyModelId}`;
+      skyGroup.visible = this.isSkyVisible;
+      this.currentSkyGroup = skyGroup;
+      this.scene.add(skyGroup);
+
+      this.loadAuthenticSky(def.skyModelId, skyGroup, loadingId);
+    }
+
     return def;
+  }
+
+  private loadAuthenticSky(skyModelId: string, targetGroup: THREE.Group, loadingId: number): void {
+    const mtlLoader = new MTLLoader();
+    mtlLoader.setPath('/models/zones/');
+    const mtlFile = `${skyModelId}.mtl`;
+    const objFile = `${skyModelId}.obj`;
+
+    const setupSkyMesh = (mesh: THREE.Mesh) => {
+      mesh.castShadow = false;
+      mesh.receiveShadow = false;
+      mesh.renderOrder = -1000; // Render behind all foreground stage geometry
+
+      if (mesh.material) {
+        const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+        mats.forEach(m => {
+          m.side = THREE.DoubleSide;
+          m.depthWrite = false; // Never write sky to depth buffer
+          m.depthTest = true;
+          if (m instanceof THREE.MeshPhongMaterial) {
+            m.shininess = 0;
+            m.specular.setHex(0x000000);
+            if (m.map) {
+              m.map.colorSpace = THREE.SRGBColorSpace;
+              m.map.minFilter = THREE.LinearMipmapLinearFilter;
+              m.map.magFilter = THREE.LinearFilter;
+              m.map.wrapS = THREE.RepeatWrapping;
+              m.map.wrapT = THREE.RepeatWrapping;
+            }
+          }
+        });
+      }
+    };
+
+    const fitSkyScale = (loadedGroup: THREE.Group) => {
+      const box = new THREE.Box3().setFromObject(loadedGroup);
+      const size = box.getSize(new THREE.Vector3());
+      const maxDim = Math.max(size.x, size.y, size.z);
+
+      // Desired sky dome radius ~4,500 units for optimal depth & parallax
+      if (maxDim > 0.1 && maxDim < 2500) {
+        const scaleFactor = 4500 / maxDim;
+        loadedGroup.scale.set(scaleFactor, scaleFactor, scaleFactor);
+      } else if (maxDim > 9000) {
+        const scaleFactor = 6000 / maxDim;
+        loadedGroup.scale.set(scaleFactor, scaleFactor, scaleFactor);
+      }
+    };
+
+    mtlLoader.load(
+      mtlFile,
+      (materialsCreator) => {
+        if (loadingId !== this.activeLoadingId) return;
+        materialsCreator.preload();
+
+        Object.values(materialsCreator.materials).forEach((mat) => {
+          mat.side = THREE.DoubleSide;
+          mat.depthWrite = false;
+          mat.depthTest = true;
+
+          if (mat instanceof THREE.MeshPhongMaterial || (mat as any).isMeshPhongMaterial) {
+            const phong = mat as THREE.MeshPhongMaterial;
+            phong.shininess = 0;
+            phong.specular = new THREE.Color(0x000000);
+            phong.transparent = true;
+
+            if (phong.map) {
+              phong.map.colorSpace = THREE.SRGBColorSpace;
+              phong.map.minFilter = THREE.LinearMipmapLinearFilter;
+              phong.map.magFilter = THREE.LinearFilter;
+              phong.map.wrapS = THREE.RepeatWrapping;
+              phong.map.wrapT = THREE.RepeatWrapping;
+            }
+          }
+        });
+
+        const objLoader = new OBJLoader();
+        objLoader.setMaterials(materialsCreator);
+        objLoader.setPath('/models/zones/');
+
+        objLoader.load(
+          objFile,
+          (loadedGroup) => {
+            if (loadingId !== this.activeLoadingId) return;
+
+            loadedGroup.traverse((child) => {
+              if ((child as THREE.Mesh).isMesh) {
+                setupSkyMesh(child as THREE.Mesh);
+              }
+            });
+
+            fitSkyScale(loadedGroup);
+            loadedGroup.name = `sky_mesh_${skyModelId}`;
+            targetGroup.add(loadedGroup);
+            console.log(`[PSO] Loaded authentic sky model: ${skyModelId}`);
+          },
+          undefined,
+          (err) => {
+            console.error(`[PSO] Error loading sky OBJ ${skyModelId}:`, err);
+          }
+        );
+      },
+      undefined,
+      () => {
+        if (loadingId !== this.activeLoadingId) return;
+        const objLoader = new OBJLoader();
+        objLoader.load(
+          `/models/zones/${objFile}`,
+          (loadedGroup) => {
+            if (loadingId !== this.activeLoadingId) return;
+
+            loadedGroup.traverse((child) => {
+              if ((child as THREE.Mesh).isMesh) {
+                setupSkyMesh(child as THREE.Mesh);
+              }
+            });
+
+            fitSkyScale(loadedGroup);
+            loadedGroup.name = `sky_mesh_${skyModelId}`;
+            targetGroup.add(loadedGroup);
+          },
+          undefined,
+          (err) => {
+            console.warn(`[PSO] Could not load sky model ${skyModelId}:`, err);
+          }
+        );
+      }
+    );
   }
 
   private loadAuthenticStage(def: ZoneDefinition, targetGroup: THREE.Group, loadingId: number): void {
@@ -289,7 +449,12 @@ export class WorldLoader {
     console.log(`[PSO] Loaded custom user map ${name} at:`, center);
   }
 
-  public update(time: number): void {
+  public update(time: number, cameraPos?: THREE.Vector3): void {
+    // Keep authentic sky centered on camera position to maintain infinite parallax
+    if (this.currentSkyGroup && cameraPos) {
+      this.currentSkyGroup.position.copy(cameraPos);
+    }
+
     if (this.currentWorldGroup) {
       this.currentWorldGroup.traverse(obj => {
         if (obj instanceof THREE.Mesh && obj.material) {
@@ -303,7 +468,13 @@ export class WorldLoader {
   }
 
   public setLayerVisibility(layer: string, visible: boolean): void {
-    if (!this.currentWorldGroup) return;
+    if (layer === 'skybox') {
+      this.isSkyVisible = visible;
+      if (this.currentSkyGroup) {
+        this.currentSkyGroup.visible = visible;
+      }
+      return;
+    }
 
     if (layer === 'fog') {
       if (!visible) {
@@ -318,23 +489,30 @@ export class WorldLoader {
       return;
     }
 
-    if (layer === 'wireframe') {
-      this.currentWorldGroup.traverse(obj => {
-        if (obj instanceof THREE.Mesh && obj.material) {
-          if (Array.isArray(obj.material)) {
-            obj.material.forEach(m => (m.wireframe = visible));
-          } else {
-            obj.material.wireframe = visible;
+    if (this.currentWorldGroup) {
+      if (layer === 'wireframe') {
+        this.currentWorldGroup.traverse(obj => {
+          if (obj instanceof THREE.Mesh && obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach(m => (m.wireframe = visible));
+            } else {
+              obj.material.wireframe = visible;
+            }
           }
-        }
-      });
-      return;
+        });
+        return;
+      }
+
+      if (layer === 'terrain' || layer === 'props') {
+        this.currentWorldGroup.visible = visible;
+      }
     }
   }
 
   public setLightIntensity(factor: number): void {
-    this.ambientLight.intensity = 1.4 * factor;
-    this.dirLight.intensity = 1.8 * factor;
+    this.ambientLight.intensity = 0.9 * factor;
+    this.dirLight.intensity = 1.4 * factor;
+    this.hemiLight.intensity = 1.2 * factor;
   }
 
   private disposeHierarchy(obj: THREE.Object3D): void {
@@ -356,3 +534,4 @@ export class WorldLoader {
     });
   }
 }
+

@@ -1,0 +1,10 @@
+# Phantasy Star Online Authentic Sky Material
+
+newmtl mat_sky_00
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+d 1.0
+illum 1
+map_Kd ../textures/sky_sky_forest_02_00.png
+

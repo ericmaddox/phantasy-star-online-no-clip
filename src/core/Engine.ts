@@ -64,7 +64,7 @@ export class Engine {
     const elapsedTime = this.clock.getElapsedTime();
 
     this.cameraController.update(delta);
-    this.worldLoader.update(elapsedTime);
+    this.worldLoader.update(elapsedTime, this.camera.position);
 
     this.renderer.render(this.scene, this.camera);
   };
