@@ -1,2 +1,113 @@
 # Phantasy Star Online Authentic Material Archive
 
+newmtl mat_000
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u064_ult_ikada02.png
+
+newmtl mat_001
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+
+newmtl mat_002
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u064_ult_ikada03.png
+
+newmtl mat_003
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u128_ult_ikada01.png
+
+newmtl mat_004
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u032_ult_ikada01.png
+
+newmtl mat_005
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u064_ult_ikada01.png
+
+newmtl mat_006
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ha_u128_dobunki01.png
+
+newmtl mat_007
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u256_ult_ikada01.png
+
+newmtl mat_008
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ha_u032_rail.png
+
+newmtl mat_009
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ki_u128_vo_kabe04.png
+
+newmtl mat_010
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u256_ult_ikada02.png
+
+newmtl mat_011
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/fo_u064_elev04.png
+
+newmtl mat_012
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u064_ult_ikada04.png
+
+newmtl mat_013
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/u064_ult_ikada04.png
+

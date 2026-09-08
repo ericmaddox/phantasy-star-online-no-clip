@@ -6,22 +6,37 @@ import { ZoneDefinition, WORLD_REGISTRY } from './WorldRegistry';
 export class WorldLoader {
   private scene: THREE.Scene;
   private currentWorldGroup: THREE.Group | null = null;
+  private currentBoundingBox: THREE.Box3 | null = null;
   private ambientLight: THREE.AmbientLight;
   private dirLight: THREE.DirectionalLight;
   private currentZoneDef: ZoneDefinition | null = null;
   private activeLoadingId = 0;
+  private onLoadedCallback?: (zoneDef: ZoneDefinition, vertexCount: number, box: THREE.Box3) => void;
+  private raycaster = new THREE.Raycaster();
 
   constructor(scene: THREE.Scene) {
     this.scene = scene;
 
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
     this.ambientLight.name = 'AmbientLight';
     this.scene.add(this.ambientLight);
 
-    this.dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    this.dirLight = new THREE.DirectionalLight(0xffffff, 1.8);
     this.dirLight.name = 'SunLight';
-    this.dirLight.position.set(50, 100, 50);
+    this.dirLight.position.set(50, 120, 50);
     this.scene.add(this.dirLight);
+  }
+
+  public getCurrentWorldGroup(): THREE.Group | null {
+    return this.currentWorldGroup;
+  }
+
+  public getCurrentBoundingBox(): THREE.Box3 | null {
+    return this.currentBoundingBox;
+  }
+
+  public setOnLoadedCallback(cb: (zoneDef: ZoneDefinition, vertexCount: number, box: THREE.Box3) => void): void {
+    this.onLoadedCallback = cb;
   }
 
   public loadZone(zoneId: string): ZoneDefinition {
@@ -33,6 +48,7 @@ export class WorldLoader {
       this.scene.remove(this.currentWorldGroup);
       this.disposeHierarchy(this.currentWorldGroup);
       this.currentWorldGroup = null;
+      this.currentBoundingBox = null;
     }
 
     // Set atmosphere / fog / lighting
@@ -53,12 +69,13 @@ export class WorldLoader {
     const loadingId = ++this.activeLoadingId;
 
     // Load authentic stage OBJ/MTL directly
-    this.loadAuthenticStage(def.id, group, loadingId);
+    this.loadAuthenticStage(def, group, loadingId);
 
     return def;
   }
 
-  private loadAuthenticStage(zoneId: string, targetGroup: THREE.Group, loadingId: number): void {
+  private loadAuthenticStage(def: ZoneDefinition, targetGroup: THREE.Group, loadingId: number): void {
+    const zoneId = def.id;
     const mtlLoader = new MTLLoader();
     mtlLoader.setPath('/models/zones/');
     const mtlFile = `${zoneId}.mtl`;
@@ -74,16 +91,27 @@ export class WorldLoader {
         // Configure authentic texture mapping & surface properties
         Object.values(materialsCreator.materials).forEach((mat) => {
           mat.side = THREE.DoubleSide;
+          mat.depthWrite = true;
+          mat.depthTest = true;
+
           if (mat instanceof THREE.MeshPhongMaterial || (mat as any).isMeshPhongMaterial) {
             const phong = mat as THREE.MeshPhongMaterial;
-            phong.shininess = 15;
+            phong.shininess = 20;
+            phong.specular = new THREE.Color(0x222222);
+
+            // Essential fix: Opaque stage meshes MUST NOT be marked transparent!
+            // Marking opaque meshes transparent breaks per-pixel Z-buffer occlusion.
+            phong.transparent = false;
+
             if (phong.map) {
+              phong.map.colorSpace = THREE.SRGBColorSpace;
               phong.map.minFilter = THREE.LinearMipmapLinearFilter;
               phong.map.magFilter = THREE.LinearFilter;
               phong.map.wrapS = THREE.RepeatWrapping;
               phong.map.wrapT = THREE.RepeatWrapping;
-              phong.transparent = true;
-              phong.alphaTest = 0.05;
+
+              // Alpha cutoff for foliage, railings, grates, laser bars, fences
+              phong.alphaTest = 0.25;
             }
           }
         });
@@ -103,6 +131,20 @@ export class WorldLoader {
                 const mesh = child as THREE.Mesh;
                 mesh.castShadow = true;
                 mesh.receiveShadow = true;
+
+                if (mesh.material) {
+                  const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+                  mats.forEach(m => {
+                    m.side = THREE.DoubleSide;
+                    m.depthWrite = true;
+                    m.depthTest = true;
+                    if (m instanceof THREE.MeshPhongMaterial && m.map) {
+                      m.map.colorSpace = THREE.SRGBColorSpace;
+                      m.alphaTest = 0.25;
+                    }
+                  });
+                }
+
                 if (mesh.geometry) {
                   if (!mesh.geometry.attributes.normal) {
                     mesh.geometry.computeVertexNormals();
@@ -114,7 +156,14 @@ export class WorldLoader {
 
             loadedGroup.name = `authentic_${zoneId}`;
             targetGroup.add(loadedGroup);
-            console.log(`[PSO] Loaded authentic game asset: ${zoneId} (${vertexCount.toLocaleString()} vertices)`);
+
+            const box = new THREE.Box3().setFromObject(loadedGroup);
+            this.currentBoundingBox = box;
+            console.log(`[PSO] Loaded authentic game asset: ${zoneId} (${vertexCount.toLocaleString()} vertices)`, box);
+
+            if (this.onLoadedCallback) {
+              this.onLoadedCallback(def, vertexCount, box);
+            }
           },
           undefined,
           (err) => {
@@ -132,8 +181,38 @@ export class WorldLoader {
           `/models/zones/${objFile}`,
           (loadedGroup) => {
             if (loadingId !== this.activeLoadingId) return;
+
+            let vertexCount = 0;
+            loadedGroup.traverse((child) => {
+              if ((child as THREE.Mesh).isMesh) {
+                const mesh = child as THREE.Mesh;
+                mesh.castShadow = true;
+                mesh.receiveShadow = true;
+                if (!mesh.material) {
+                  mesh.material = new THREE.MeshStandardMaterial({
+                    color: 0x88bbdd,
+                    roughness: 0.6,
+                    metalness: 0.2,
+                    side: THREE.DoubleSide
+                  });
+                }
+                if (mesh.geometry) {
+                  if (!mesh.geometry.attributes.normal) {
+                    mesh.geometry.computeVertexNormals();
+                  }
+                  vertexCount += mesh.geometry.attributes.position ? mesh.geometry.attributes.position.count : 0;
+                }
+              }
+            });
+
             loadedGroup.name = `authentic_${zoneId}`;
             targetGroup.add(loadedGroup);
+
+            const box = new THREE.Box3().setFromObject(loadedGroup);
+            this.currentBoundingBox = box;
+            if (this.onLoadedCallback) {
+              this.onLoadedCallback(def, vertexCount, box);
+            }
           },
           undefined,
           (objErr) => {
@@ -144,16 +223,69 @@ export class WorldLoader {
     );
   }
 
+  /**
+   * Find the highest walkable floor height directly beneath (x, z)
+   */
+  public findFloorHeight(x: number, z: number, startY?: number): number | null {
+    if (!this.currentWorldGroup) return null;
+
+    const startHeight = startY ?? (this.currentBoundingBox ? this.currentBoundingBox.max.y + 100 : 500);
+    const origin = new THREE.Vector3(x, startHeight, z);
+    const direction = new THREE.Vector3(0, -1, 0);
+
+    this.raycaster.set(origin, direction);
+    this.raycaster.near = 0.1;
+    this.raycaster.far = 10000;
+
+    const intersects = this.raycaster.intersectObjects(this.currentWorldGroup.children, true);
+    if (intersects.length > 0) {
+      // Find the highest intersection point that is below startHeight
+      for (const hit of intersects) {
+        if (hit.point.y <= startHeight) {
+          return hit.point.y;
+        }
+      }
+      return intersects[0].point.y;
+    }
+
+    return null;
+  }
+
+  /**
+   * Calculates a safe standing eye-level position above the floor, avoiding spawning under geometry.
+   */
+  public getSafeSpawnPosition(desiredPos: [number, number, number]): [number, number, number] {
+    const floorY = this.findFloorHeight(desiredPos[0], desiredPos[2], desiredPos[1] + 150);
+    if (floorY !== null) {
+      const eyeHeight = 10.0;
+      // Position camera safely at player eye-height above the actual floor polygon
+      return [desiredPos[0], floorY + eyeHeight, desiredPos[2]];
+    }
+
+    // Fallback: If position missed geometry completely, check bounding box
+    if (this.currentBoundingBox && !this.currentBoundingBox.isEmpty()) {
+      const center = this.currentBoundingBox.getCenter(new THREE.Vector3());
+      const min = this.currentBoundingBox.min;
+      const centerFloor = this.findFloorHeight(center.x, center.z);
+      if (centerFloor !== null) {
+        return [center.x, centerFloor + 15, center.z + 40];
+      }
+      return [center.x, min.y + 20, center.z + 50];
+    }
+
+    return desiredPos;
+  }
+
   public loadCustomGroup(group: THREE.Group, name: string): void {
     if (this.currentWorldGroup) {
       this.scene.remove(this.currentWorldGroup);
       this.disposeHierarchy(this.currentWorldGroup);
     }
     this.currentWorldGroup = group;
+    this.currentBoundingBox = new THREE.Box3().setFromObject(group);
     this.scene.add(group);
 
-    const box = new THREE.Box3().setFromObject(group);
-    const center = box.getCenter(new THREE.Vector3());
+    const center = this.currentBoundingBox.getCenter(new THREE.Vector3());
     console.log(`[PSO] Loaded custom user map ${name} at:`, center);
   }
 
@@ -201,8 +333,8 @@ export class WorldLoader {
   }
 
   public setLightIntensity(factor: number): void {
-    this.ambientLight.intensity = 1.0 * factor;
-    this.dirLight.intensity = 1.4 * factor;
+    this.ambientLight.intensity = 1.4 * factor;
+    this.dirLight.intensity = 1.8 * factor;
   }
 
   private disposeHierarchy(obj: THREE.Object3D): void {
@@ -211,8 +343,12 @@ export class WorldLoader {
         if (child.geometry) child.geometry.dispose();
         if (child.material) {
           if (Array.isArray(child.material)) {
-            child.material.forEach(m => m.dispose());
+            child.material.forEach(m => {
+              if (m.map) m.map.dispose();
+              m.dispose();
+            });
           } else {
+            if (child.material.map) child.material.map.dispose();
             child.material.dispose();
           }
         }

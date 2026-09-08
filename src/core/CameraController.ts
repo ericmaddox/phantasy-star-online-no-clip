@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { WorldLoader } from '../worlds/WorldLoader';
 
 export type CameraMode = 'fly' | 'orbit';
 
@@ -34,6 +35,7 @@ export class CameraController {
 
   private domElement: HTMLElement;
   private onTelemetryUpdate?: (pos: THREE.Vector3, yaw: number, pitch: number, mode: CameraMode, speed: number) => void;
+  private onGroundSnapRequest?: () => void;
 
   constructor(camera: THREE.PerspectiveCamera, domElement: HTMLElement) {
     this.camera = camera;
@@ -46,11 +48,19 @@ export class CameraController {
     this.onTelemetryUpdate = cb;
   }
 
+  public setGroundSnapCallback(cb: () => void): void {
+    this.onGroundSnapRequest = cb;
+  }
+
   private setupEvents(): void {
     window.addEventListener('keydown', (e) => {
       this.keys[e.code] = true;
       if (e.code === 'KeyC') {
         this.setMode(this.mode === 'fly' ? 'orbit' : 'fly');
+      } else if (e.code === 'KeyG') {
+        if (this.onGroundSnapRequest) {
+          this.onGroundSnapRequest();
+        }
       }
     });
 
@@ -102,6 +112,16 @@ export class CameraController {
       const forward = new THREE.Vector3(0, 0, -1).applyEuler(new THREE.Euler(this.pitch, this.yaw, 0, 'YXZ'));
       this.orbitTarget.copy(this.position).addScaledVector(forward, this.orbitDistance);
     }
+  }
+
+  public snapToFloor(worldLoader: WorldLoader): boolean {
+    const floorY = worldLoader.findFloorHeight(this.position.x, this.position.z, this.position.y + 50);
+    if (floorY !== null) {
+      const targetPos: [number, number, number] = [this.position.x, floorY + 10.0, this.position.z];
+      this.teleportTo(targetPos, [this.yaw, this.pitch], true);
+      return true;
+    }
+    return false;
   }
 
   public teleportTo(pos: [number, number, number], rot: [number, number], smooth = true): void {

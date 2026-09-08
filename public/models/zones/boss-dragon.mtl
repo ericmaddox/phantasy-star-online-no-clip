@@ -1,2 +1,111 @@
 # Phantasy Star Online Authentic Material Archive
 
+newmtl mat_000
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/r256_tendoama.png
+
+newmtl mat_001
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/r008_tendoskya04.png
+
+newmtl mat_002
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/r256_tendosky03.png
+
+newmtl mat_003
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/r256_tendosky02.png
+
+newmtl mat_004
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/r256_tendosky01.png
+
+newmtl mat_005
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/r256_tendoginga.png
+
+newmtl mat_006
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/k256_ayukiau.png
+
+newmtl mat_007
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/k512_ayukigake01.png
+
+newmtl mat_008
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+
+newmtl mat_009
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/k512_ayuki01.png
+
+newmtl mat_010
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/k256_ayukiyoko01.png
+
+newmtl mat_011
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+
+newmtl mat_012
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+
+newmtl mat_013
+Ka 0.8000 0.8000 0.8000
+Kd 1.0000 1.0000 1.0000
+Ks 0.1500 0.1500 0.1500
+d 1.0000
+illum 2
+map_Kd ../textures/ha_u064_adomizu000.png
+

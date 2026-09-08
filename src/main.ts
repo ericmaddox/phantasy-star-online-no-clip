@@ -26,6 +26,25 @@ class PsoNoclipApp {
     this.initAudio();
     this.initFileDrop();
 
+    this.engine.worldLoader.setOnLoadedCallback((def, vertexCount) => {
+      this.showToast(`Loaded: ${def.name} (${vertexCount.toLocaleString()} vertices)`);
+      // Validate ground level for initial position if not using custom URL position
+      const parsed = StateManager.parseUrlHash();
+      if (!parsed.camPos) {
+        const safePos = this.engine.worldLoader.getSafeSpawnPosition(def.defaultPos);
+        this.engine.cameraController.teleportTo(safePos, def.defaultRot, false);
+      }
+    });
+
+    this.engine.cameraController.setGroundSnapCallback(() => {
+      const snapped = this.engine.cameraController.snapToFloor(this.engine.worldLoader);
+      if (snapped) {
+        this.showToast('Snapped to floor level');
+      } else {
+        this.showToast('No floor found below');
+      }
+    });
+
     this.loadInitialRoute();
     this.engine.start();
   }
@@ -115,7 +134,8 @@ class PsoNoclipApp {
       chip.onclick = () => {
         document.querySelectorAll('.poi-chip').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
-        this.engine.cameraController.teleportTo(poi.position, poi.rotation, true);
+        const safePos = this.engine.worldLoader.getSafeSpawnPosition(poi.position);
+        this.engine.cameraController.teleportTo(safePos, poi.rotation, true);
         this.showToast(`Viewpoint: ${poi.name}`);
       };
       container.appendChild(chip);
@@ -134,7 +154,8 @@ class PsoNoclipApp {
       btn.style.justifyContent = 'flex-start';
       btn.innerHTML = `<i data-lucide="map-pin" class="icon-xs"></i><span>${poi.name}</span>`;
       btn.onclick = () => {
-        this.engine.cameraController.teleportTo(poi.position, poi.rotation, true);
+        const safePos = this.engine.worldLoader.getSafeSpawnPosition(poi.position);
+        this.engine.cameraController.teleportTo(safePos, poi.rotation, true);
         this.showToast(`Teleported to ${poi.name}`);
       };
       container.appendChild(btn);
@@ -310,9 +331,19 @@ class PsoNoclipApp {
       this.engine.camera.updateProjectionMatrix();
     };
 
+    document.getElementById('snap-ground-btn')!.onclick = () => {
+      const snapped = this.engine.cameraController.snapToFloor(this.engine.worldLoader);
+      if (snapped) {
+        this.showToast('Snapped to floor level (eye height)');
+      } else {
+        this.showToast('No floor found directly below');
+      }
+    };
+
     document.getElementById('reset-cam-btn')!.onclick = () => {
-      this.engine.cameraController.teleportTo(this.currentZone.defaultPos, this.currentZone.defaultRot, true);
-      this.showToast('Camera Reset to Default');
+      const safePos = this.engine.worldLoader.getSafeSpawnPosition(this.currentZone.defaultPos);
+      this.engine.cameraController.teleportTo(safePos, this.currentZone.defaultRot, true);
+      this.showToast('Camera Reset to Spawn Position');
     };
   }
 
