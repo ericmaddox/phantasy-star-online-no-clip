@@ -641,6 +641,7 @@ def main():
         ("map_aboss01n.rel", "map_boss01.xvm", "boss-dragon"),
         ("map_aboss02n.rel", "map_boss02.xvm", "caves-derolle"),
         ("map_boss03n.rel", "map_boss03.xvm", "boss-vol-opt"),
+        ("map_boss05nm.rel", "map_boss05m.xvm", "boss-dark-falz-meadow"),
         ("map_boss05n.rel", "map_boss05.xvm", "boss-dark-falz"),
         ("map_boss06n.rel", "map_boss06.xvm", "boss-gol-dragon"),
         ("map_boss07n.rel", "map_boss07.xvm", "boss-gryphon"),

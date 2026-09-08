@@ -382,6 +382,30 @@ export const WORLD_REGISTRY: ZoneDefinition[] = [
     ]
   },
   {
+    id: 'boss-dark-falz-meadow',
+    name: 'Dark Falz - Sanctuary Meadow (Intro)',
+    episode: 'ep1',
+    subArea: 'Ruins - Core Lair',
+    description: 'The tranquil sunny meadow and monument entered prior to the Dark Falz confrontation, before the illusion shatters into the void.',
+    defaultPos: [0, 20, 90],
+    defaultRot: [0, -0.1],
+    fogColor: 0x4488bb,
+    fogNear: 600,
+    fogFar: 4000,
+    bgColor: 0x225588,
+    ambientLight: 0xffffff,
+    sunColor: 0xfff8e0,
+    sunPos: [80, 140, 60],
+    hemiSkyColor: 0x66bbff,
+    hemiGroundColor: 0x2a5518,
+    skyModelId: 'sky-forest-01',
+    pois: [
+      { id: 'spawn', name: 'Meadow Entrance', description: 'Sunlit grassy entry overlook', position: [0, 15, 80], rotation: [0, -0.1] },
+      { id: 'monument', name: 'Central Memorial Monument', description: 'Ancient glowing monolith in the center of the field', position: [0, 15, 0], rotation: [0, 0] },
+      { id: 'hills', name: 'Rolling Grassy Ridge', description: 'Surrounding green hills and flowerbeds', position: [50, 25, -40], rotation: [-Math.PI / 4, -0.1] }
+    ]
+  },
+  {
     id: 'boss-dark-falz',
     name: 'Dark Falz Arena',
     episode: 'ep1',
